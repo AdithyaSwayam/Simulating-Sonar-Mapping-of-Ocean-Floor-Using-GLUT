@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1774633326 source:f:\testcase\deepseaiteration01\main.cpp
+	<windows.h>
+	<GL/freeglut.h>
+	<GL/glu.h>
+	<cmath>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	<ctime>
+	<vector>
+	<algorithm>
+
+1426329928 c:\program files\codeblocks\mingw\include\gl\glut.h
+	"freeglut_std.h"
+
+1426329928 c:\program files\codeblocks\mingw\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426329928 c:\program files\codeblocks\mingw\include\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1426329928 c:\program files\codeblocks\mingw\include\gl\freeglut_ext.h
+	<stdarg.h>
+
