@@ -8,7 +8,7 @@ A real-time 3D sonar terrain scanner built in C++98 with OpenGL and FreeGLUT. An
 
 OS: Windows (primary). Linux buildable with minor lib swaps.
 IDE: Code::Blocks with MinGW (open the .cbp to build instantly)
-RAM: ~400 MB free (2048×2048 terrain grid)
+RAM: ~400 MB free (1024×1024 terrain grid)
 GPU: Any OpenGL 1.x capable card
 
 # Libraries
