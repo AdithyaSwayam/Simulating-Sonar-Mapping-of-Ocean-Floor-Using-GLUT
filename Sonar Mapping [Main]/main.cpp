@@ -694,10 +694,37 @@ static void timer(int)
     lastTime = now;
     totalTime += dt;
 
-    if (wKey) sonarZ -= PAN_SPEED * dt;
-    if (sKey) sonarZ += PAN_SPEED * dt;
-    if (aKey) sonarX -= PAN_SPEED * dt;
-    if (dKey) sonarX += PAN_SPEED * dt;
+    float ax = deg2rad(camAngleX);
+    float ay = deg2rad(camAngleY);
+    float cosX = cosf(ax);
+    float sinX = sinf(ax);
+    float cosY = cosf(ay);
+    float sinY = sinf(ay);
+
+
+    float fwX = -sinY;
+    float fwZ = -cosY;
+
+    float rtX =  cosY;
+    float rtZ = -sinY;
+
+    float speed = PAN_SPEED * dt;
+
+    float dx = 0.0f, dz = 0.0f;
+
+    if (wKey) { dx += fwX; dz += fwZ; }
+    if (sKey) { dx -= fwX; dz -= fwZ; }
+    if (dKey) { dx += rtX; dz += rtZ; }
+    if (aKey) { dx -= rtX; dz -= rtZ; }
+
+    float len = sqrtf(dx * dx + dz * dz);
+    if (len > 1e-5f) {
+        dx /= len;
+        dz /= len;
+    }
+
+    sonarX += dx * speed;
+    sonarZ += dz * speed;
 
     sonarX = std::max(5.0f, std::min(WORLD - 5.0f, sonarX));
     sonarZ = std::max(5.0f, std::min(WORLD - 5.0f, sonarZ));
@@ -717,7 +744,6 @@ static void timer(int)
     glutPostRedisplay();
     glutTimerFunc(16, timer, 0);
 }
-
 static void mouseButton(int button, int state, int x, int y)
 {
     if (button == GLUT_LEFT_BUTTON) {
